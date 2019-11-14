@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div id="app" >
+    <div id="nav" >
       <!-- <router-link to="/">Home</router-link>  -->
       <!-- <router-link to="/about">About</router-link> -->
       <router-view/>
@@ -12,7 +12,17 @@
 import {Vue, Component} from 'vue-property-decorator';
 @Component
 export default class App extends Vue {
-
+  public mounted() {
+    document.body.oncontextmenu = function(){
+    　　return false;
+    }
+    document.addEventListener("touchstart", function(event) {
+      event.preventDefault();
+    });
+    document.addEventListener("touchend", function(event) {
+      event.preventDefault();
+    });
+  }
 }
 </script>
 <style lang="less">

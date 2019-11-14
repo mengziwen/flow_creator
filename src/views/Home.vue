@@ -12,7 +12,7 @@
 					@dblclick="editRect(rectItem, index)"
 					:x="rectItem.x" :y="rectItem.y" :width="rectItem.width" :height="rectItem.height" />
 				<!-- 块上文字 -->
-				<text v-for="(rectItem, index) in state.rectArray" :key="rectItem.id + '_rect_text'" 
+				<text class="rectText" v-for="(rectItem, index) in state.rectArray" :key="rectItem.id + '_rect_text'" 
 					:x="rectItem.x + 10" :y="rectItem.y + 23" @dblclick="editRect(rectItem, index)">
 					{{rectItem.name}}
 				</text>
@@ -507,33 +507,18 @@ export default class Index extends Vue {
 	.line{
 		line-height: 32px;
 		margin: 5px;
-		.icon{
-			position: relative;
-			left: 10px;
-			color: red;
-		}
-		.select{
-			width:100%;
-			margin-bottom: 5px;
-		}
-		.plusButton{
-			position: relative;
-			left: 5px;
-		}
 	}
 }
 .home{
-  height: 100%;
+  	height: 100%;
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	
-	.lay-boxs{
-		position: relative;
-		width: 300px;
-	}
 	.svg{
 		flex: 1;
+		.rectText{
+			user-select: none;
+		}
 	}
 }
 </style>
